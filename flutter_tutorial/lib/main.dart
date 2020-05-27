@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/paint_demo/qi_flutter_tutorial_paint.dart';
 import 'SafeArea/qi_safeAreaEntrance.dart';
 import 'Expanded/qi_expanded.dart';
 import 'Wrap/qi_warp.dart';
@@ -6,6 +7,8 @@ import 'AnimatedContainer/qi_AnimatedContainer.dart';
 import 'Opacity/qi_opacity.dart';
 import 'FutureBuilder/qi_futureBuilder.dart';
 import 'bottomNavigationBar/qi_bottomNavigationBar.dart';
+import 'paint_demo/qi_paint_demo.dart';
+import 'paint_demo/flutter_tutorial.dart';
 
 // 业务代码
 import 'PersonalInfo/qi_personalInfo.dart';
@@ -19,6 +22,7 @@ enum LearningWidgetType {
   FutureBuilder,
   UnchangedPersonalInfo,
   BottomNavigationBar,
+  Paint,
 }
 
 // 导航栏Key内容
@@ -87,6 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
               widgetType: LearningWidgetType.UnchangedPersonalInfo),
           _sectionTypeListTile('BottomNavigationBar',
               widgetType: LearningWidgetType.BottomNavigationBar),
+          _sectionTypeListTile('PaintDemo',
+              widgetType: LearningWidgetType.Paint),
         ],
       ),
     );
@@ -248,6 +254,24 @@ class _MyHomePageState extends State<MyHomePage> {
             {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => QiBottomNavigationBar()));
+            }
+            break;
+          case LearningWidgetType.Paint:
+            {
+              // Navigator.of(context).push(MaterialPageRoute(
+              //     builder: (BuildContext context) =>
+              //         GradientCircularProgressIndicator(
+              //             radius: 100.0,
+              //             colors: [Colors.red, Colors.blue, Colors.yellow])));
+
+              // Navigator.of(context).push(MaterialPageRoute(
+              //     builder: (BuildContext context) =>
+              //         GradientCircularProgressRoute()));
+
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => QiPaintful()));
+              // Navigator.of(context).push(MaterialPageRoute(
+              //     builder: (BuildContext context) => FlutterMyPainter()));
             }
             break;
           default:
